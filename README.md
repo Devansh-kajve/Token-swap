@@ -67,7 +67,7 @@ npm run preview  # test production build
 
 ## 🚀 Deployment
 
-This app is deployed on Vercel. Every push to `main` branch automatically deploys.
+This app is deployed on Netlify. Every push to `main` branch automatically deploys.
 
 ## Notes
 
