@@ -1,16 +1,74 @@
-# React + Vite
+# Token Swap DEX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple decentralized exchange interface for swapping tokens. Built as a frontend test project.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Open http://localhost:5173
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## Tech Stack
 
-## Expanding the ESLint configuration
+- React 18 + Vite
+- Tailwind CSS
+- Lucide React (icons)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Swap between ETH, BNB, USDC, and DAI
+- Real-time token ↔ USD conversion
+- Mock wallet connection
+- Transaction flow simulation
+- Settings (slippage, deadline)
+
+## Structure
+
+```
+src/
+├── components/     # UI components
+├── hooks/          # Custom hooks for logic
+├── lib/            # Utilities (calculations, validation)
+├── constants/      # Token configs
+└── pages/          # Main swap page
+```
+
+## Adding Tokens
+
+Edit `src/constants/tokens.js`:
+
+```javascript
+export const TOKENS = [
+  {
+    id: "sol",
+    symbol: "SOL",
+    name: "Solana",
+    priceUsd: 150,
+    decimals: 9,
+    color: "bg-purple-500",
+  },
+  // ... existing tokens
+];
+```
+
+## Build
+
+```bash
+npm run build
+npm run preview  # test production build
+```
+
+## 🌐 Live Demo
+
+**[View Live Demo](https://tokenswapdex.netlify.app/)**
+
+## 🚀 Deployment
+
+This app is deployed on Vercel. Every push to `main` branch automatically deploys.
+
+## Notes
+
+This is a demo app - no real blockchain transactions happen. Prices are hardcoded and wallets are simulated.
